@@ -10,8 +10,15 @@ export default function App() {
     const addGoalHandler = goalTittle => {
         setGoals(currentGoals => [
             ...currentGoals,
-            { key: Math.random().toString(), value: goalTittle }
+            { id: Math.random().toString(), value: goalTittle }
         ]);
+    };
+
+    // Remove items from the list
+    const removeGoalHandler = goalId => {
+        setGoals(currentGoals => {
+            return currentGoals.filter((goal) => goal.id !== goalId)
+        });
     };
 
     return (
@@ -22,7 +29,13 @@ export default function App() {
             <FlatList
                 data={goals}
                 renderItem={itemData => {
-                    return <GoalItem title={itemData.item.value} />;
+                    return (
+                        <GoalItem
+                            title={itemData.item.value}
+                            id={itemData.item.id}
+                            onDelete={removeGoalHandler}
+                        />
+                    )
                 }}
             />
         </View>
