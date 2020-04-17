@@ -1,10 +1,17 @@
 import React, { useState } from 'react';
-import { StyleSheet, View, FlatList } from 'react-native';
+import {
+    StyleSheet,
+    View,
+    FlatList,
+    Button
+} from 'react-native';
+
 import GoalItem from './components/GoalItem';
 import GoalInput from './components/GoalInput';
 
 export default function App() {
-    const [goals, setGoals] = useState([]);
+    const [goals, setGoals] = useState([]); // Items
+    const [isAddMode, setIsAddMode] = useState(false); // Show text input or not
 
     // Adding items to list
     const addGoalHandler = goalTittle => {
@@ -21,9 +28,19 @@ export default function App() {
         });
     };
 
+    // Cancel function
+    const cancelGoalAdditionHandler = () => {
+        setIsAddMode(false)
+    };
+
     return (
         <View style={styles.screen}>
-            <GoalInput onAddGoal={addGoalHandler} />
+            <Button title="Add New Goal" onPress={() => setIsAddMode(true)} />
+            <GoalInput
+                visible={isAddMode}
+                onAddGoal={addGoalHandler}
+                onCancel={cancelGoalAdditionHandler}
+            />
 
             {/* List of items */}
             <FlatList
