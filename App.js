@@ -3,7 +3,8 @@ import {
     StyleSheet,
     View,
     FlatList,
-    Button
+    Button,
+    Text
 } from 'react-native';
 
 import GoalItem from './components/GoalItem';
@@ -15,6 +16,9 @@ export default function App() {
 
     // Adding items to list
     const addGoalHandler = goalTittle => {
+        if (goalTittle.length === 0) {
+            return;
+        };
         setGoals(currentGoals => [
             ...currentGoals,
             { id: Math.random().toString(), value: goalTittle }
@@ -55,6 +59,13 @@ export default function App() {
                     )
                 }}
             />
+
+            {/* Showing additional information */}
+            {Array.isArray(goals) && goals.length ?
+                <Text style={styles.additionalInfo}>
+                    *you can delete any item just by clicking on it
+                </Text> : null
+            }
         </View>
     );
 };
@@ -64,15 +75,7 @@ const styles = StyleSheet.create({
     screen: {
         padding: 50
     },
-    inputContainer: {
-        flexDirection: 'row',
-        justifyContent: 'space-between',
-        alignItems: 'center'
-    },
-    input: {
-        width: '80%',
-        borderBottomColor: 'black',
-        borderWidth: 1,
-        padding: 10
-    },
+    additionalInfo: {
+        fontSize: 10
+    }
 });
