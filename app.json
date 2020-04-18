@@ -1,6 +1,6 @@
 {
   "expo": {
-    "name": "rn-first-app",
+    "name": "Native ToDo app",
     "slug": "rn-first-app",
     "platforms": [
       "ios",

@@ -1,9 +1,10 @@
 {
   "devToolsPort": 19002,
-  "expoServerPort": 19000,
-  "packagerPort": 19001,
-  "packagerPid": 17568,
-  "expoServerNgrokUrl": "https://wn-aj4.anonymous.rn-first-app.exp.direct",
-  "packagerNgrokUrl": "https://packager.wn-aj4.anonymous.rn-first-app.exp.direct",
-  "ngrokPid": 14304
+  "expoServerPort": null,
+  "packagerPort": null,
+  "packagerPid": null,
+  "expoServerNgrokUrl": null,
+  "packagerNgrokUrl": null,
+  "ngrokPid": null,
+  "webpackServerPort": null
 }
