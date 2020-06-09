@@ -1,8 +1,8 @@
 {
-    "hostType": "lan",
-    "lanType": "ip",
-    "dev": true,
-    "minify": false,
-    "urlRandomness": "wn-aj4",
-    "https": false
+  "urlRandomness": "ye-v3h",
+  "hostType": "lan",
+  "lanType": "ip",
+  "dev": true,
+  "minify": false,
+  "https": false
 }
